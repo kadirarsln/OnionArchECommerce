@@ -8,9 +8,9 @@ namespace ECommerce.Application.Features.Categories.Queries.GetListByPaginate;
 
 public sealed class GetListByPaginateCategoryQuery : IRequest<Paginate<GetListByPaginateCategoryResponseDto>>
 {
-    public PageRequest PageRequest { get; set; }
+    public PageRequest? PageRequest { get; set; }
 
-    public sealed class GetListByPaginateCtaegoryHandler(IMapper _mapper, ICategoryRepository categoryRepository) : IRequestHandler<GetListByPaginateCategoryQuery, Paginate<GetListByPaginateCategoryResponseDto>>
+    public sealed class GetListByPaginateCategoryHandler(IMapper _mapper, ICategoryRepository categoryRepository) : IRequestHandler<GetListByPaginateCategoryQuery, Paginate<GetListByPaginateCategoryResponseDto>>
     {
         public async Task<Paginate<GetListByPaginateCategoryResponseDto>> Handle(GetListByPaginateCategoryQuery request, CancellationToken cancellationToken)
         {

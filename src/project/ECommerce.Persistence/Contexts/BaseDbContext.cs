@@ -4,12 +4,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ECommerce.Persistence.Contexts;
 
-public class BaseDbContext : DbContext
+public class BaseDbContext(DbContextOptions<BaseDbContext> options) : DbContext(options)
 {
-    public BaseDbContext(DbContextOptions<BaseDbContext> options) : base(options)
-    {
-    }
-
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
@@ -17,6 +13,5 @@ public class BaseDbContext : DbContext
     }
 
     public DbSet<Category> Categories { get; set; }
-
 }
 

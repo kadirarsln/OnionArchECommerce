@@ -3,7 +3,7 @@ using FluentValidation;
 
 namespace ECommerce.Application.Features.Categories.Commands.Create
 {
-    internal class AddCategoryValidator : AbstractValidator<AddCategoryCommand>
+    public class AddCategoryValidator : AbstractValidator<AddCategoryCommand>
     {
         public AddCategoryValidator()
         {

@@ -4,14 +4,14 @@ using MediatR;
 
 namespace ECommerce.Application.Features.Categories.Commands.Delete
 {
-    public class CategoryDeleteCommand : IRequest<string>
+    public class DeleteCategoryCommand : IRequest<string>
     {
         public int Id { get; set; }
 
-        public sealed class CategoryDeleteCommandHandler(ICategoryRepository _categoryRepository, CategoryBusinessRules _businessRules) : IRequestHandler<CategoryDeleteCommand, string>
+        public sealed class DeleteCategoryCommandHandler(ICategoryRepository _categoryRepository, CategoryBusinessRules _businessRules) : IRequestHandler<DeleteCategoryCommand, string>
         {
 
-            public async Task<string> Handle(CategoryDeleteCommand request, CancellationToken cancellationToken)
+            public async Task<string> Handle(DeleteCategoryCommand request, CancellationToken cancellationToken)
             {
                 await _businessRules.CategoryIsPresentAsync(request.Id, cancellationToken);
 

@@ -10,7 +10,7 @@ public sealed class AddCategoryCommand : IRequest<AddedCategoryResponseDto>
 {
     public string Name { get; set; }
 
-    public class AddCategoryCommandHandler(IMapper _mapper, ICategoryRepository _categoryRepository, CategoryBusinessRules _businessRules) : IRequestHandler<AddCategoryCommand, AddedCategoryResponseDto>
+    public sealed class AddCategoryCommandHandler(IMapper _mapper, ICategoryRepository _categoryRepository, CategoryBusinessRules _businessRules) : IRequestHandler<AddCategoryCommand, AddedCategoryResponseDto>
     {
         public async Task<AddedCategoryResponseDto> Handle(AddCategoryCommand request, CancellationToken cancellationToken)
         {
