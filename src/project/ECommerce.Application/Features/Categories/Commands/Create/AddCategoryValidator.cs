@@ -3,9 +3,9 @@ using FluentValidation;
 
 namespace ECommerce.Application.Features.Categories.Commands.Create
 {
-    internal class CategoryAddValidator : AbstractValidator<CategoryAddCommand>
+    internal class AddCategoryValidator : AbstractValidator<AddCategoryCommand>
     {
-        public CategoryAddValidator()
+        public AddCategoryValidator()
         {
             RuleFor(p => p.Name)
                 .NotEmpty().WithMessage("Name is required.")

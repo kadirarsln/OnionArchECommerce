@@ -2,6 +2,7 @@
 using ECommerce.Application.Features.Categories.Commands.Create;
 using ECommerce.Application.Features.Categories.Commands.Delete;
 using ECommerce.Application.Features.Categories.Queries.GetById;
+using ECommerce.Application.Features.Categories.Queries.GetList;
 using ECommerce.Application.Features.Categories.Queries.GetListByPaginate;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -13,11 +14,19 @@ namespace ECommerce.WebApi.Controllers;
 public class CategoriesController(IMediator _mediator) : BaseController(_mediator)
 {
     [HttpPost("create")]
-    public async Task<IActionResult> Create([FromBody] CategoryAddCommand command)
+    public async Task<IActionResult> Create([FromBody] AddCategoryCommand command)
     {
         var response = await _mediator.Send(command);
         return Ok();
     }
+
+    [HttpGet("getall")]
+    public async Task<IActionResult> GetAll() => Ok(await _mediator.Send(new GetListCategoryQuery()));
+    //{
+    //    var query = new GetListCategoryQuery();
+    //    var response = await _mediator.Send(query);
+    //    return Ok(response);
+    //}
 
     [HttpGet("paginate")]
     public async Task<IActionResult> GetPaginate([FromQuery] PageRequest pageRequest)

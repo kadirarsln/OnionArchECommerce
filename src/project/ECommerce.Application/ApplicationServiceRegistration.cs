@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 using Core.Application.Pipelines.Validation;
+using FluentValidation;
 
 namespace ECommerce.Application;
 
@@ -23,3 +24,4 @@ public static class ApplicationServiceRegistration
         return services;
     }
 }
+ 

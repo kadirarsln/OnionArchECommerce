@@ -5,10 +5,7 @@ using ECommerce.Persistence.Contexts;
 
 namespace ECommerce.Persistence.Concretes;
 
-public class CategoryRepository : EfRepositoryBase<Category, int, BaseDbContext>, ICategoryRepository
+public class CategoryRepository(BaseDbContext dbContext) : EfRepositoryBase<Category, int, BaseDbContext>(dbContext), ICategoryRepository
 {
-    public CategoryRepository(BaseDbContext dbContext) : base(dbContext)
-    {
-    }
 }
 

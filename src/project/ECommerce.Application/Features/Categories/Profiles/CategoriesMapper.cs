@@ -12,8 +12,8 @@ public class CategoriesMapper : Profile
 {
     public CategoriesMapper()
     {
-        CreateMap<CategoryAddCommand, Category>();
-        CreateMap<Category, CategoryAddedResponseDto>();
+        CreateMap<AddCategoryCommand, Category>();
+        CreateMap<Category, AddedCategoryResponseDto>();
 
         CreateMap<Category, GetListCategoryResponseDto>();
 
