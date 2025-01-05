@@ -5,6 +5,6 @@ using ECommerce.Persistence.Contexts;
 
 namespace ECommerce.Persistence.Concretes;
 
-public sealed class CategoryRepository(BaseDbContext dbContext) : EfRepositoryBase<Category, int, BaseDbContext>(dbContext), ICategoryRepository
+public sealed class AppUserRepository(BaseDbContext dbContext) : EfRepositoryBase<AppUser, int, BaseDbContext>(dbContext), IAppUserRepository
 {
 }
