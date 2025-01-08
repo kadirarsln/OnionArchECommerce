@@ -1,4 +1,4 @@
-﻿using ECommerce.Persistence.Abstracts;
+﻿using ECommerce.Application.Services.Repositories;
 using ECommerce.Persistence.Concretes;
 using ECommerce.Persistence.Contexts;
 using Microsoft.EntityFrameworkCore;
@@ -16,7 +16,13 @@ namespace ECommerce.Persistence
                 options.UseSqlServer(configuration.GetConnectionString("SqlCon"));
             });
 
+            services.AddScoped<IAppUserRepository, AppUserRepository>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<IOrderRepository, OrderRepository>();
+            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<ISubCategoryRepository, SubCategoryRepository>();
+            services.AddScoped<IUserOperationClaimRepository, UserOperationClaimRepository>();
+
 
             return services;
         }
