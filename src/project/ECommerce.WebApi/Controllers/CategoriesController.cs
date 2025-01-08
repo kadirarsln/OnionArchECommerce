@@ -45,7 +45,7 @@ public class CategoriesController(IMediator _mediator) : BaseController(_mediato
 
     //    var query = new GetByIdCategoryQuery
     //    {
-    //        Id = id
+    //        Id = id 
     //    };
     //    var response = await _mediator.Send(query);
     //    return Ok(response);

@@ -9,7 +9,7 @@ namespace ECommerce.Application.Features.Categories.Commands.Create
         {
             RuleFor(p => p.Name)
                 .NotEmpty().WithMessage("Name is required.")
-                .MinimumLength(5).WithMessage(CategoryMessages.CategoryNameMustBeMinimumThreeLengthMessage);
+                .MinimumLength(3).WithMessage(CategoryMessages.CategoryNameMustBeMinimumThreeLengthMessage);
         }
     }
 }
