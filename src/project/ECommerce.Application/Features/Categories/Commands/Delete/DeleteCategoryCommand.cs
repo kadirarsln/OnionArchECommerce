@@ -1,5 +1,5 @@
 ﻿using ECommerce.Application.Features.Categories.Rules;
-using ECommerce.Persistence.Abstracts;
+using ECommerce.Application.Services.Repositories;
 using MediatR;
 
 namespace ECommerce.Application.Features.Categories.Commands.Delete
@@ -13,6 +13,7 @@ namespace ECommerce.Application.Features.Categories.Commands.Delete
 
             public async Task<string> Handle(DeleteCategoryCommand request, CancellationToken cancellationToken)
             {
+                //null check
                 await _businessRules.CategoryIsPresentAsync(request.Id, cancellationToken);
 
                 var category = await _categoryRepository.GetAsync(predicate: x => x.Id == request.Id,
